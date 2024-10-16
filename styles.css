@@ -4,9 +4,15 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    scroll-behavior: smooth; /* Makes scrolling smooth between sections */
+    overflow: hidden;
+}
+
 body {
     font-family: Arial, sans-serif;
-    overflow-x: hidden;
+    scroll-snap-type: y mandatory; /* Enables vertical snap scrolling */
 }
 
 section {
@@ -17,6 +23,7 @@ section {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    scroll-snap-align: start; /* Snaps the start of each section to the top */
 }
 
 .section .content {
@@ -27,9 +34,6 @@ section {
     padding: 20px;
     background: rgba(0, 0, 0, 0.6); /* Optional semi-transparent background */
     border-radius: 10px;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1s ease, transform 1s ease;
 }
 
 .section .background {
@@ -41,9 +45,4 @@ section {
     background-size: cover;
     background-position: center;
     z-index: 1;
-}
-
-section.in-view .content {
-    opacity: 1;
-    transform: translateY(0); /* Animate the text into view when scrolled */
 }
