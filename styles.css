@@ -7,7 +7,7 @@ html, body {
 
 /* Enable scroll snapping on the body */
 body {
-    scroll-snap-type: y mandatory; /* Y axis snap scrolling */
+    scroll-snap-type: y proximity; /* Y axis snap scrolling */
     overflow-y: scroll; /* Ensure the body is scrollable */
 }
 
