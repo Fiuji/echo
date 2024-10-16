@@ -1,11 +1,24 @@
-// Function to add animation when elements scroll into view
-window.addEventListener('scroll', function() {
-    const elements = document.querySelectorAll('.animate');
-    const scrollTop = window.scrollY;
+// Function to check if a section is in the viewport
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return rect.top >= 0 && rect.bottom <= window.innerHeight;
+}
 
-    elements.forEach((el) => {
-        if (el.getBoundingClientRect().top < window.innerHeight) {
-            el.classList.add('fade-in');
+// Function to add 'in-view' class when a section enters the viewport
+function handleScroll() {
+    const sections = document.querySelectorAll('.section');
+
+    sections.forEach((section) => {
+        if (isInViewport(section)) {
+            section.classList.add('in-view');
+        } else {
+            section.classList.remove('in-view');
         }
     });
-});
+}
+
+// Event listener for scrolling
+window.addEventListener('scroll', handleScroll);
+
+// Initial call to handle scroll when the page loads
+handleScroll();
